@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In — CSTutor</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="auth-container">
+
+    <h1>CSTutor</h1>
+    <p class="subtitle">Your AI computer science study companion</p>
+
+    <div class="card">
+      <h2>Welcome back</h2>
+
+      <% if (error) { %>
+        <div class="error-message"><%= error %></div>
+      <% } %>
+
+      <form action="/login" method="POST">
+
+        <label for="email" class="label-first">Email</label>
+        <input type="email" id="email" name="email" required
+               placeholder="you@example.com">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required
+               placeholder="Your password">
+
+        <button type="submit" class="btn-primary">Log in</button>
+      </form>
+
+      <p class="switch-link">
+        No account yet? <a href="/signup">Sign up</a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

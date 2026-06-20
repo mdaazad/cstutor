@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — CSTutor</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="auth-container">
+
+    <h1>CSTutor</h1>
+    <p class="subtitle">Your AI computer science study companion</p>
+
+    <div class="card">
+      <h2>Create an account</h2>
+
+      <%# error is passed from app.js as a variable.        %>
+      <%# If it's null, this block is skipped entirely.     %>
+      <%# If signup fails, error will be a string message.  %>
+      <% if (error) { %>
+        <div class="error-message"><%= error %></div>
+      <% } %>
+
+      <%# action="/signup" → sends the form data to POST /signup in app.js  %>
+      <%# method="POST"   → form data goes in the request body, not the URL  %>
+      <form action="/signup" method="POST">
+
+        <%# label-first class removes the top margin on the first label only %>
+        <label for="username" class="label-first">Username</label>
+        <%# name="username" → becomes req.body.username in app.js            %>
+        <input type="text" id="username" name="username" required
+               placeholder="azad_dev">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required
+               placeholder="you@example.com">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required
+               placeholder="At least 6 characters">
+
+        <button type="submit" class="btn-primary">Create account</button>
+      </form>
+
+      <p class="switch-link">
+        Already have an account? <a href="/login">Log in</a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

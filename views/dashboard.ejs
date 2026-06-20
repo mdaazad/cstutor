@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — CSTutor</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <header>
+    <span class="logo">CSTutor</span>
+    <span class="welcome">Hello, <strong><%= username %></strong></span>
+    <form action="/logout" method="POST" style="display:inline;">
+      <button type="submit" class="logout-btn">Log out</button>
+    </form>
+  </header>
+
+  <main class="dashboard-container">
+
+    <section class="ask-section">
+      <h2>Ask a CS question</h2>
+
+      <% if (error) { %>
+        <div class="error-message"><%= error %></div>
+      <% } %>
+
+      <form action="/ask" method="POST">
+        <label for="question" class="label-first">Your question</label>
+        <textarea id="question" name="question" rows="4"
+          placeholder="e.g. What is the difference between a stack and a queue?"
+          required></textarea>
+        <button type="submit" class="btn-primary">Ask CSTutor</button>
+      </form>
+    </section>
+
+    <% if (answer) { %>
+      <section class="answer-section">
+        <h3>Answer</h3>
+        <div class="answer-box"><%- answer.replace(/\n/g, '<br>') %></div>
+      </section>
+    <% } %>
+
+    <section class="history-section">
+      <h2>Your question history</h2>
+
+      <% if (chats.length === 0) { %>
+        <p class="empty-state">No questions yet. Ask something above to get started!</p>
+      <% } else { %>
+        <% chats.forEach(function(chat) { %>
+          <div class="chat-card">
+            <div class="chat-question">
+              <strong>You:</strong> <%= chat.question %>
+            </div>
+            <div class="chat-answer">
+              <strong>CSTutor:</strong> <%- chat.answer.replace(/\n/g, '<br>') %>
+            </div>
+            <div class="chat-meta">
+              <span class="chat-date"><%= chat.createdAt.toLocaleDateString() %></span>
+              <form action="/chat/<%= chat._id %>/delete" method="POST" style="display:inline;">
+                <button type="submit" class="delete-btn"
+                  onclick="return confirm('Delete this question?')">
+                  Delete
+                </button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
+    </section>
+
+  </main>
+
+</body>
+</html>

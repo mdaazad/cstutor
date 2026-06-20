@@ -1,0 +1,13 @@
+# Dependencies — reinstalled via npm install
+node_modules/
+
+# Environment variables — contains your secret API keys and DB password
+# NEVER commit this file
+.env
+
+# Mac OS system file
+.DS_Store
+
+# Editor folders
+.vscode/
+.idea/
