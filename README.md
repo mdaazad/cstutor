@@ -1,3 +1,12 @@
+## Live Demo
+
+https://cstutor.onrender.com
+
+## Test Account (for grader)
+
+- Email: test@cstutor.com
+- Password: Test1234!
+
 # CSTutor — AI Computer Science Tutor
 
 An AI-powered tutoring web app for computer science students. Ask any CS question and get a clear, educational answer powered by Google Gemini.
