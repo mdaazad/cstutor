@@ -51,6 +51,29 @@ app.post('/signup', async (req, res) => {
     if (existingUser) {
       return res.render('signup', { error: 'An account with that email already exists.' });
     }
+    
+    // Check 1: Username must be at least 3 characters
+if (username.trim().length < 3) {
+  return res.render('signup', {
+    error: 'Username must be at least 3 characters.'
+  });
+}
+
+// Check 2: Password must be at least 6 characters
+if (password.length < 6) {
+  return res.render('signup', {
+    error: 'Password must be at least 6 characters.'
+  });
+}
+
+// Check 3: Username must be unique
+const existingUsername = await User.findOne({ username: username.trim() });
+if (existingUsername) {
+  return res.render('signup', {
+    error: 'That username is already taken. Please choose another.'
+  });
+}
+
     const passwordHash = await bcrypt.hash(password, 10);
     const user = new User({ username, email, passwordHash });
     await user.save();
