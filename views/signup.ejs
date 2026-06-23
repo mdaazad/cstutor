@@ -25,7 +25,7 @@
 
       <%# action="/signup" → sends the form data to POST /signup in app.js  %>
       <%# method="POST"   → form data goes in the request body, not the URL  %>
-      <form action="/signup" method="POST">
+      <form action="/auth/signup" method="POST">
 
         <%# label-first class removes the top margin on the first label only %>
         <label for="username" class="label-first">Username</label>
@@ -45,7 +45,7 @@
       </form>
 
       <p class="switch-link">
-        Already have an account? <a href="/login">Log in</a>
+        Already have an account? <a href="/auth/login">Log in</a>
       </p>
     </div>
 

@@ -20,7 +20,7 @@
         <div class="error-message"><%= error %></div>
       <% } %>
 
-      <form action="/login" method="POST">
+      <form action="/auth/login" method="POST">
 
         <label for="email" class="label-first">Email</label>
         <input type="email" id="email" name="email" required
@@ -34,7 +34,7 @@
       </form>
 
       <p class="switch-link">
-        No account yet? <a href="/signup">Sign up</a>
+        No account yet? <a href="/auth/signup">Sign up</a>
       </p>
     </div>
 

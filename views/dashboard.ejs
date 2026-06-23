@@ -11,7 +11,7 @@
   <header>
     <span class="logo">CSTutor</span>
     <span class="welcome">Hello, <strong><%= username %></strong></span>
-    <form action="/logout" method="POST" style="display:inline;">
+    <form action="/auth/logout" method="POST" style="display:inline;">
       <button type="submit" class="logout-btn">Log out</button>
     </form>
   </header>
@@ -25,7 +25,7 @@
         <div class="error-message"><%= error %></div>
       <% } %>
 
-      <form action="/ask" method="POST">
+      <form action="/dashboard/ask" method="POST">
         <label for="question" class="label-first">Your question</label>
         <textarea id="question" name="question" rows="4"
           placeholder="e.g. What is the difference between a stack and a queue?"
@@ -57,7 +57,7 @@
             </div>
             <div class="chat-meta">
               <span class="chat-date"><%= chat.createdAt.toLocaleDateString() %></span>
-              <form action="/chat/<%= chat._id %>/delete" method="POST" style="display:inline;">
+              <form action="/dashboard/<%= chat._id %>/delete" method="POST" style="display:inline;">
                 <button type="submit" class="delete-btn"
                   onclick="return confirm('Delete this question?')">
                   Delete
