@@ -26,7 +26,7 @@ An AI-powered tutoring web app for computer science students. Ask any CS questio
 - **Backend:** Node.js, Express.js
 - **Templating:** EJS
 - **Database:** MongoDB Atlas with Mongoose
-- **AI API:** Google Gemini (gemini-2.0-flash)
+- **AI API:** Google Gemini (`gemini-3.5-flash`)
 - **Auth:** express-session + bcryptjs
 - **Deployment:** Render
 
@@ -35,7 +35,7 @@ An AI-powered tutoring web app for computer science students. Ask any CS questio
 1. Clone the repository
 
    ```
-   git clone https://github.com/YOUR_USERNAME/cstutor.git
+   git clone https://github.com/mdaazad/cstutor.git
    cd cstutor
    ```
 
